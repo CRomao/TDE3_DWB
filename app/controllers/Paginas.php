@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use App\Controllers\ControladorCore;
+use App\Models\BD\UsuarioDao;
 
 class Paginas extends ControladorCore {
     
@@ -10,8 +11,10 @@ class Paginas extends ControladorCore {
     }
 
     public function index() {
+        $this->produtos();
         $this->addTituloPagina("Página Inicial");
         $this->carregarPagina("v_home");
+        
     }
 
     public function produto() {
@@ -25,19 +28,20 @@ class Paginas extends ControladorCore {
     }
 
     public function produtos() {
-        if (!$this->estaLogado()) {
-            header("Location:".BASE_URL);
+       // if (!$this->estaLogado()) {
+            //header("Location:".BASE_URL);
 
-        } else {
-            $this->addTituloPagina("Listar Produtos");
-            
+       // } else {
+            //$this->addTituloPagina("Listar Produtos");
+            $usu = new UsuarioDao();
+            $resu = $usu->login("JOSE", 123456);
             $this->addDadosPagina(
                 "produtos",
-                array("Monitor", "Placa mãe", "Memória RAM")
+                array($resu->getNome(), $resu->getEmail(), $resu->getSenha())
             );
 
-            $this->carregarPagina("produtos");
-        }
+            //$this->carregarPagina("produtos");
+        //}
     }
     
     public function sobre() {

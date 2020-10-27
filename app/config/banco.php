@@ -7,9 +7,9 @@ use App\Models\BD\ConfigConexaoBD;
 function getConexaoBD(): PDO {
     $conn = ConfigConexaoBD::getInstancia(
         "localhost",
-        "banco_pdsiii",
+        "tde3_dwb",
         "root",
-        "root"
+        "sua-nova-senha"
     );
     
     return $conn->getConexao();

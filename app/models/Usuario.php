@@ -5,10 +5,14 @@ class Usuario {
 
     private string $nome;
     private string $senha;
+    private string $email;
+    private int $id;
 
-    public function __construct($nome, $senha) {
+    public function __construct($nome, $senha, $email, $id) {
         $this->nome = $nome;
         $this->senha = $senha;
+        $this->email = $email;
+        $this->id = $id;
     }
 
     
@@ -27,5 +31,17 @@ class Usuario {
     public function getSenha()
     {
         return $this->senha;
+    }
+
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
     }
 }

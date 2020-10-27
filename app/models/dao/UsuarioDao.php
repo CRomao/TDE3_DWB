@@ -20,7 +20,7 @@ class UsuarioDao extends Dao {
             $resultado = $req->fetch(PDO::FETCH_ASSOC);
 
             if (!empty($resultado)) {
-                return new Usuario($resultado["nome"], $resultado["email"], $resultado["senha"]);
+                return new Usuario($resultado["nome"], $resultado["senha"], $resultado["email"], $resultado["id"]);
             }
 
         } catch (Exception $e) {
