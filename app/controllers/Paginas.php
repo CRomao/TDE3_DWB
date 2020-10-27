@@ -34,11 +34,9 @@ class Paginas extends ControladorCore {
        // } else {
             //$this->addTituloPagina("Listar Produtos");
             $usu = new UsuarioDao();
-            $resu = $usu->login("JOSE", 123456);
+            $resu = $usu->carregarProdutos();
             $this->addDadosPagina(
-                "produtos",
-                array($resu->getNome(), $resu->getEmail(), $resu->getSenha())
-            );
+                "produtos",$resu);
 
             //$this->carregarPagina("produtos");
         //}

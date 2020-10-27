@@ -15,21 +15,28 @@
         </div>
     </div>
 </div>
+</div>
 
 <table border="1">
-        <tr>
-            <th>Nome Produto</th>
-        </tr>
         <?php
         //echo "<pre>".print_r($dados, true)."</pre>";
-        foreach ($dadosView["produtos"] as $p):?>
+        $linhas = $dadosView["produtos"];
+        for($i=0; $i < 5; $i++):?>
             <tr>
-                <td><?=$p?></td>
+                <th>Nome Produto</th>
             </tr>
+                <tr>
+                    <td><?php var_dump($linhas[$i]->getNome())?></td>
+                </tr>
+                <tr>
+                    <td><?php var_dump($linhas[$i]->getEmail())?></td>
+                </tr>
+                <tr>
+                    <td><?php var_dump($linhas[$i]->getSenha())?></td>
+                </tr>
         <?php
-        endforeach;?>
+        endfor;?>
     </table>
-</div>
 
 <div class="col-12 col-sm-6 col-lg-3 mb-3">
     <div class="card p-0 hvr-glow">

@@ -10,18 +10,19 @@ class UsuarioDao extends Dao {
         parent::__construct();
     }
 
-    public function login($nome, $senha) {
+    public function carregarProdutos() {
         try {
-            $sql = "SELECT * FROM tb_usuario WHERE nome = ? AND senha = ?";
+            $sql = "SELECT * FROM tb_usuario";
 
             $req = $this->pdo->prepare($sql);
-            $req->execute([$nome, $senha]);
-
-            $resultado = $req->fetch(PDO::FETCH_ASSOC);
-
-            if (!empty($resultado)) {
-                return new Usuario($resultado["nome"], $resultado["senha"], $resultado["email"], $resultado["id"]);
+            $req->execute();
+            $linhas = [];
+            while($linha = $req->fetch(PDO::FETCH_ASSOC)){
+                array_push($linhas, 
+                new Usuario($linha["nome"], $linha["senha"], $linha["email"]));
             }
+
+            return $linhas;
 
         } catch (Exception $e) {
             echo $e->getMessage();

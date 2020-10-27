@@ -8,11 +8,10 @@ class Usuario {
     private string $email;
     private int $id;
 
-    public function __construct($nome, $senha, $email, $id) {
+    public function __construct($nome, $senha, $email) {
         $this->nome = $nome;
         $this->senha = $senha;
         $this->email = $email;
-        $this->id = $id;
     }
 
     
