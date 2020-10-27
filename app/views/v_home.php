@@ -1,39 +1,32 @@
 <div class="col-12 mb-4">
     <h4 class="text-muted">veja as últimas novidades selecionadas para você!</h4>
 </div>
-<div class="col-12 col-sm-6 col-lg-3 mb-3">
-    <div class="card p-0 hvr-glow">
-        <img src="<?=BASE_URL."/assets/img/guitar.jpg"?>" alt="prod1" class="card-img-top" widht="50px">
 
-        <div class="card-body">
-            <p class="card-text">Sumidouro de palheta</p>
-            <small>por</small>
-            <h5 class="card-title mb-0">R$ 849,99</h5>
-            <small>ou 12x de R$ 119,00 com muito juros</small>
+
+
             
-            <p class="mt-3 float-right"><a href="<?=BASE_URL."/produto"?>" class="btn btn-sm btn-primary">Já quero!</a></p>
-        </div>
-    </div>
-</div>
-</div>
+            
+
 
 <table border="1">
         <?php
         //echo "<pre>".print_r($dados, true)."</pre>";
         $linhas = $dadosView["produtos"];
-        for($i=0; $i < 5; $i++):?>
-            <tr>
-                <th>Nome Produto</th>
-            </tr>
-                <tr>
-                    <td><?php var_dump($linhas[$i]->getNome())?></td>
-                </tr>
-                <tr>
-                    <td><?php var_dump($linhas[$i]->getEmail())?></td>
-                </tr>
-                <tr>
-                    <td><?php var_dump($linhas[$i]->getSenha())?></td>
-                </tr>
+        for($i=0; $i < count($linhas); $i++):?>
+            <div class="col-12 col-sm-6 col-lg-3 mb-3">
+                <div class="card p-0 hvr-glow">
+                <!--<?php// var_dump($linhas[$i]->getSenha())?>-->
+                    <img src="<?=BASE_URL."/assets/img/guitar.jpg"?>" alt="prod1" class="card-img-top" widht="50px">
+                    <div class="card-body">
+                        <p class="card-text"><?php print_r($linhas[$i]->getNome())?></p>
+                        <small>por</small>
+                        <h5 class="card-title mb-0"><?php print_r($linhas[$i]->getEmail())?></h5>
+                        <small>ou 12x de R$ 119,00 com muito juros</small>
+                        <p class="mt-3 float-right"><a href="<?=BASE_URL."/produto"?>" class="btn btn-sm btn-primary">Já quero!</a></p>
+                    </div>
+                </div>
+            </div>
+            </div>
         <?php
         endfor;?>
     </table>
