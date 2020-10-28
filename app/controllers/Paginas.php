@@ -13,8 +13,7 @@ class Paginas extends ControladorCore {
     public function index() {
         $this->produtos();
         $this->addTituloPagina("Página Inicial");
-        $this->carregarPagina("v_home");
-        
+        $this->carregarPagina("v_home");    
     }
 
     public function produto() {
@@ -32,13 +31,12 @@ class Paginas extends ControladorCore {
             $resu = $usu->carregarProdutos();
             $this->addDadosPagina(
                 "produtos",$resu);
-
     }
 
-    public function produtoSelecionado(){
+    public function produtos_carrinho(){
         
     }
-    
+
     public function sobre() {
         echo __FUNCTION__;
     }

@@ -33,7 +33,15 @@
                         <div class="col-sm-1 mt-3 text-center">
                             <a href="#">
                                 <a href="<?=BASE_URL."/carrinho"?>"><img src="<?=BASE_URL."/assets/img/shopping-cart.svg"?>" alt="Carrinho" width="50px"></a>
-                                <p class="p-0 m-0"><span class="badge badge-pill badge-success">0</span></p>
+                                <p class="p-0 m-0"><span class="badge badge-pill badge-success">
+                                <?php 
+                                    if(isset($_SESSION['carrinho-produto'])){
+                                            //colocar aqui a implementação
+                                            echo $_SESSION['carrinho-produto'] . '</span></p>';
+                                    }else{
+                                       echo '0</span></p>';
+                                    }
+                                ?>
                             </a>
                         </div>
                         <div class="col-12">

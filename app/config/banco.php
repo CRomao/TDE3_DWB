@@ -9,7 +9,7 @@ function getConexaoBD(): PDO {
         "localhost",
         "tde3_dwb",
         "root",
-        "root"
+        "sua-nova-senha"
     );
     
     return $conn->getConexao();

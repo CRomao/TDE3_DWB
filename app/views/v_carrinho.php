@@ -42,7 +42,7 @@
                             <img src="<?=BASE_URL."/assets/img/guitar.jpg"?>" alt="prod" width="150px" class="img-thumbnail">
                         </td>
                         <td>
-                            Sumidouro de palheta Marca X 1889 EXCLUSIVO! Só tem esse, compre logo que vai acabar!
+                        <?= $_POST['produtoDesc']?> ! Só tem esse, compre logo que vai acabar!
                         </td>
                         <td>
                             <form action="<?=BASE_URL."/nova-qtd-produto/url-produto"?>" method="POST">

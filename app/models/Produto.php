@@ -9,7 +9,7 @@ class Produto {
     private int $id;
 
     public function __construct($foto, $descricao, $preco) {
-        $this->nome = $foto;
+        $this->foto = $foto;
         $this->descricao = $descricao;
         $this->preco = $preco;
     }
