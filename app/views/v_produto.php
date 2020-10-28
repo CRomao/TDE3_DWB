@@ -7,6 +7,7 @@
     </nav>
 </section>
 <section class="col-12">
+    <?= $_SESSION['item']; ?>
     <h3>Sumidouro de palheta Marca X 1889 EXCLUSIVO! Só tem esse, compre logo que vai acabar!</h3>
     <div class="row">
         <div class="col-sm-8">
@@ -79,3 +80,4 @@
         </tbody>
     </table>
 </section>
+<?php $_SESSION['item']=  null; ?>

@@ -1,10 +1,11 @@
 <?php
 namespace App\Models\BD;
 
-use App\Models\Usuario;
+use App\Models\Produto;
 use PDO;
+use Exception;
 
-class UsuarioDao extends Dao {
+class ProdutoDao extends Dao {
 
     public function __construct() {
         parent::__construct();
@@ -12,14 +13,14 @@ class UsuarioDao extends Dao {
 
     public function carregarProdutos() {
         try {
-            $sql = "SELECT * FROM tb_usuario";
+            $sql = "SELECT * FROM tb_produto";
 
             $req = $this->pdo->prepare($sql);
             $req->execute();
             $linhas = [];
             while($linha = $req->fetch(PDO::FETCH_ASSOC)){
                 array_push($linhas, 
-                new Usuario($linha["nome"], $linha["senha"], $linha["email"]));
+                new Produto($linha["foto"], $linha["descricao"], $linha["preco"]));
             }
 
             return $linhas;

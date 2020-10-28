@@ -2,7 +2,7 @@
 namespace App\Controllers;
 
 use App\Controllers\ControladorCore;
-use App\Models\BD\UsuarioDao;
+use App\Models\BD\ProdutoDao;
 
 class Paginas extends ControladorCore {
     
@@ -28,18 +28,15 @@ class Paginas extends ControladorCore {
     }
 
     public function produtos() {
-       // if (!$this->estaLogado()) {
-            //header("Location:".BASE_URL);
-
-       // } else {
-            //$this->addTituloPagina("Listar Produtos");
-            $usu = new UsuarioDao();
+            $usu = new ProdutoDao();
             $resu = $usu->carregarProdutos();
             $this->addDadosPagina(
                 "produtos",$resu);
 
-            //$this->carregarPagina("produtos");
-        //}
+    }
+
+    public function produtoSelecionado(){
+        
     }
     
     public function sobre() {
