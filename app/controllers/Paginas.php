@@ -54,8 +54,22 @@ class Paginas extends ControladorCore {
         }
         $this->adicionarProdutosCarrinho($_POST['produtoFot'], $_POST['produtoDesc'],
                                     $_POST['produtoPrec'],$_POST['produtoQuantidade']);
-        header("Location: ". BASE_URL.'/carrinho');  
+        header("Location: ".BASE_URL.'/carrinho');  
         
+    }
+
+    public function cadastrarProduto(){
+        $this->addTituloPagina("Página Cadastro Produto");
+        $this->carregarPagina("v_cadastro_produto");
+    }
+
+    public function cadastroRealizado(){
+        $item = new ProdutoDao();
+        $resu = $item->inserirProduto($_POST['foto'], $_POST['descricao'],
+        $_POST['preco']);
+        $this->addDadosPagina("cadastroRealizado", $resu);
+        $this->addTituloPagina("Produto Cadastrado");
+        $this->carregarPagina("v_produto_cadastrado");
     }
 
     public function sobre() {

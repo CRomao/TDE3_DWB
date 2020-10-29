@@ -34,6 +34,7 @@
                             <form action="<?=BASE_URL."/nova-qtd-produto/url-produto"?>" method="POST">
                                 <div class="form-group">
                                     <input type="number" name="qtd-produto" class="form-control" value="<?=$itensCarrinho[$i]->getQuantidade()?>"/>
+                                    <p><a href="#"  style="color:red">remover</a></p>
                                 </div>
                             </form>
                         </td>

@@ -28,6 +28,20 @@ $rotas["itemAdicionado"] = array(
     "funcao" => "itemAdicionado"
 );
 
+$rotas["cadastrarProduto"] = array(
+    "http" => "GET",
+    "rota" => "/cadastrarProduto",
+    "controller" => "App\\Controllers\\Paginas",
+    "funcao" => "cadastrarProduto"
+);
+
+$rotas["cadastroRealizado"] = array(
+    "http" => "GET",
+    "rota" => "/cadastroRealizado",
+    "controller" => "App\\Controllers\\Paginas",
+    "funcao" => "cadastroRealizado"
+);
+
 $rotas["erro404"] = array(
     "http" => "GET",
     "rota" => "/404",

@@ -31,4 +31,18 @@ class ProdutoDao extends Dao {
         
         return null;
     }
+
+    public function inserirProduto($foto, $descricao, $preco) {
+        try {
+            $sql = "INSERT INTO tb_produto(foto, descricao, preco) values(?,?,?)";
+
+            $req = $this->pdo->prepare($sql);
+            $req->execute([$foto, $descricao, $preco]);
+
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+        
+        return null;
+    }
 }

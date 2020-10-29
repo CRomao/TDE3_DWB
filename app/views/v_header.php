@@ -67,6 +67,9 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="#">Eletrodomésticos</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="<?=BASE_URL."/cadastrarProduto"?>">Cadastrar Produto</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
