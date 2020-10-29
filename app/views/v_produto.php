@@ -39,12 +39,17 @@
                     
                     <p class="mt-3 mb-0"><a href="#">Mais formas de pagamento</a></p>
                     <form method="post" action="<?=BASE_URL."/carrinho"?>">
-                        <input type="hidden" name="produtoDesc" value="<?php $_POST['produtoDescricao']?>">
-                        <input type="hidden" name="produtoPrec" value="<?php $_POST['produtoPreco']?>">
-                        <input type="hidden" name="produtoFot" value="<?php $_POST['produtoFoto']?>">
+                    <?php
+                    $descricao = $_POST['produtoDescricao'];
+                    $preco = $_POST['produtoPreco'];
+                    $foto = $_POST['produtoFoto'];
+                    ?>
+                        <input type="hidden" name="produtoDesc" value="<?= $descricao?>">
+                        <input type="hidden" name="produtoPrec" value="<?= $preco?>">
+                        <input type="hidden" name="produtoFot"  value="<?= $foto?>">
                         <input type="hidden" name="produtoQuantidade" value="1">
+                        <input type="hidden" name="adicionado" value="true">
                         <input class="mt-3 mb-0 text-center btn-block btn btn-success" type="submit" value="Adicionar ao carrinho">
-                        <?php// $_SESSION['produto-completo'] = serialize($linhas[$i]) ?>
                     </form>
                     <p class="mt-3 mb-0"><a href="#">Consultar prazo e valor do frete</a></p>
                 </div>

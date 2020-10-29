@@ -2,6 +2,7 @@
 namespace App\Controllers;
 
 use App\Controllers\ControladorCore;
+use App\Models\BD\CarrinhoDao;
 use App\Models\BD\ProdutoDao;
 
 class Paginas extends ControladorCore {
@@ -34,7 +35,9 @@ class Paginas extends ControladorCore {
     }
 
     public function produtos_carrinho(){
-        
+        $itens = new CarrinhoDao();
+        $resu = $itens->getItensCarrinho();
+        $this->addDadosPagina("itens-carrinho", $resu);
     }
 
     public function sobre() {

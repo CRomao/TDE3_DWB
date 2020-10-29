@@ -13,7 +13,7 @@ class ProdutoDao extends Dao {
 
     public function carregarProdutos() {
         try {
-            $sql = "SELECT * FROM tb_produtos";
+            $sql = "SELECT * FROM tb_produto";
 
             $req = $this->pdo->prepare($sql);
             $req->execute();

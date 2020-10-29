@@ -1,5 +1,9 @@
 <section class="col-12">
     <?php
+    if($_POST['adicionado']){
+        $_SESSION['carrinho-quantidade'] += 1;
+        $_POST['adicionado'] = false;
+    }
     if (!empty($carrinho)):?>
         <div class="alert alert-info" role="alert">
             <h4 class="alert-heading">Seu carrinho está vazio</h4>
