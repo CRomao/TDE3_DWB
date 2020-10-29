@@ -1,8 +1,10 @@
 <section class="col-12">
     <?php
-    use App\Controllers\Paginas;                                                        
-    if (!empty($carrinho)):?>
+        use App\Controllers\Paginas; 
+        $itensCarrinho = $dadosView["produtos_carrinho"]; 
+        $totalItens = count($itensCarrinho);     
 
+    if (empty($totalItens)):?>
         <div class="alert alert-info" role="alert">
             <h4 class="alert-heading">Seu carrinho está vazio</h4>
             <hr>
@@ -21,14 +23,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                <?php
-                    $itensCarrinho = $dadosView["produtos_carrinho"];
-                    for ($i=0; $i <count($itensCarrinho); $i++):?> 
+                <?php for ($i=0; $i <count($itensCarrinho); $i++):?> 
                         <td class="text-center d-sm-block d-none">
                             <img src="<?=print_r($itensCarrinho[$i]->getFoto())?>" alt="prod" width="150px" class="img-thumbnail">
                         </td>
                         <td style="width:50%">
-                        <?=print_r($itensCarrinho[$i]->getDescricao())?> EXCLUSIVO! Só tem esse, compre logo que vai acabar!
+                        <?=print_r($itensCarrinho[$i]->getDescricao())?>! Só tem esse, compre logo que vai acabar!
                         </td>
                         <td style="width:10%">
                             <form action="<?=BASE_URL."/nova-qtd-produto/url-produto"?>" method="POST">
@@ -47,7 +47,7 @@
         </div>
         <div class="card bg-light">
             <div class="card-body text-right">
-                <h5 class="card-title mb-0"><strong>Total</strong> (10 itens)</h5>
+                <h5 class="card-title mb-0"><strong>Total</strong> (<?= $totalItens ?> itens)</h5>
                 <p class="card-text text-muted"><small>(Em até 12x de R$ 119,00 com muito juros)</small></p>
                 <a href="#" class="btn btn-success">Continuar</a>
                 <p class="card-text text-muted"><small>Tem cupom ou vale compra? Você poderá utilizá-lo na etapa de pagamento</small></p>

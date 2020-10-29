@@ -4,6 +4,7 @@
 <table border="1">
         <?php
         
+        //$_SESSION = array();
         $linhas = $dadosView["produtos"];
         for($i=0; $i < count($linhas); $i++):?>
             <div class="col-12 col-sm-6 col-lg-3 mb-3">
