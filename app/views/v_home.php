@@ -4,7 +4,6 @@
 <table border="1">
         <?php
         
-        //echo "<pre>".print_r($dados, true)."</pre>";
         $linhas = $dadosView["produtos"];
         for($i=0; $i < count($linhas); $i++):?>
             <div class="col-12 col-sm-6 col-lg-3 mb-3">
@@ -20,7 +19,6 @@
                         <input type="hidden" name="produtoPreco" value="<?php print_r($linhas[$i]->getPreco())?>">
                         <input type="hidden" name="produtoFoto" value="<?php print_r($linhas[$i]->getFoto())?>">
                         <input class="btn btn-sm btn-primary mt-3 float-right" type="submit" value="Já quero!">
-                        <?php// $_SESSION['produto-completo'] = serialize($linhas[$i]) ?>
                         </form>
                     </div>
                 </div>

@@ -54,7 +54,7 @@ class Paginas extends ControladorCore {
         }
         $this->adicionarProdutosCarrinho($_POST['produtoFot'], $_POST['produtoDesc'],
                                     $_POST['produtoPrec'],$_POST['produtoQuantidade']);
-        $this->carrinho();
+        header("Location: ". BASE_URL.'/carrinho');  
         
     }
 

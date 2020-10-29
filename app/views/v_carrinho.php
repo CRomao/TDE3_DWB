@@ -1,9 +1,8 @@
 <section class="col-12">
     <?php
-
-    use App\Controllers\Paginas;
-//    header("Location: ". BASE_URL.'/carrinho');                                                          
+    use App\Controllers\Paginas;                                                        
     if (!empty($carrinho)):?>
+
         <div class="alert alert-info" role="alert">
             <h4 class="alert-heading">Seu carrinho está vazio</h4>
             <hr>
@@ -34,12 +33,12 @@
                         <td style="width:10%">
                             <form action="<?=BASE_URL."/nova-qtd-produto/url-produto"?>" method="POST">
                                 <div class="form-group">
-                                    <input type="text" name="qtd-produto" class="form-control" value="<?=$itensCarrinho[$i]->getQuantidade()?>"/>
+                                    <input type="number" name="qtd-produto" class="form-control" value="<?=$itensCarrinho[$i]->getQuantidade()?>"/>
                                 </div>
                             </form>
                         </td>
                         <td class="text-success text-center">
-                        <?=print_r($itensCarrinho[$i]->getPreco())?>
+                        <?=(double)$itensCarrinho[$i]->getPreco() * (int)$itensCarrinho[$i]->getQuantidade()?>
                         </td>
                     </tr>
                     <?php endfor;?>
