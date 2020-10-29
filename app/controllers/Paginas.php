@@ -23,6 +23,7 @@ class Paginas extends ControladorCore {
     }
 
     public function carrinho() {
+        $this->produtos_carrinho();
         $this->addTituloPagina("Página Carrinho");
         $this->carregarPagina("v_carrinho");
     }
@@ -37,7 +38,24 @@ class Paginas extends ControladorCore {
     public function produtos_carrinho(){
         $itens = new CarrinhoDao();
         $resu = $itens->getItensCarrinho();
-        $this->addDadosPagina("itens-carrinho", $resu);
+        $this->addDadosPagina("produtos_carrinho", $resu);
+    }
+
+    public function adicionarProdutosCarrinho($foto, $descricao, $preco, $quantidade){
+        $item = new CarrinhoDao();
+        $resu = $item->inserirItensCarrinho($foto, $descricao, $preco, $quantidade);
+        $this->addDadosPagina("adicionarProdutosCarrinho", $resu);
+    }
+
+    public function itemAdicionado(){
+        if($_POST['adicionado']){
+            $_SESSION['carrinho-quantidade'] += 1;
+            $_POST['adicionado'] = false;    
+        }
+        $this->adicionarProdutosCarrinho($_POST['produtoFot'], $_POST['produtoDesc'],
+                                    $_POST['produtoPrec'],$_POST['produtoQuantidade']);
+        $this->carrinho();
+        
     }
 
     public function sobre() {

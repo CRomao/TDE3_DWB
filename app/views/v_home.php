@@ -3,6 +3,7 @@
 </div>
 <table border="1">
         <?php
+        
         //echo "<pre>".print_r($dados, true)."</pre>";
         $linhas = $dadosView["produtos"];
         for($i=0; $i < count($linhas); $i++):?>

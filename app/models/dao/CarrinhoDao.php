@@ -32,19 +32,12 @@ class CarrinhoDao extends Dao {
         return null;
     }
 
-    public function inserirItensCarrinho() {
+    public function inserirItensCarrinho($foto, $descricao, $preco, $quantidade) {
         try {
-            $sql = "INSERT INTO tb_carrinho()";
+            $sql = "INSERT INTO tb_carrinho(foto, descricao, preco, quantidade) values(?,?,?,?)";
 
             $req = $this->pdo->prepare($sql);
-            $req->execute();
-            $linhas = [];
-            while($linha = $req->fetch(PDO::FETCH_ASSOC)){
-                array_push($linhas, 
-                new Carrinho($linha["foto"], $linha["descricao"], $linha["preco"], $linha["quantidade"]));
-            }
-
-            return $linhas;
+            $req->execute([$foto, $descricao, $preco, $quantidade]);
 
         } catch (Exception $e) {
             echo $e->getMessage();

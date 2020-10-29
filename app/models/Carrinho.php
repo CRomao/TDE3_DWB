@@ -6,7 +6,7 @@ class Carrinho {
     private string $foto;
     private string $descricao;
     private string $preco;
-    private string $quantidade;
+    private int $quantidade;
 
     public function __construct($foto, $descricao, $preco, $quantidade) {
         $this->foto = $foto;

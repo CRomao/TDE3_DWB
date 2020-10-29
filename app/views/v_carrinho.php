@@ -1,9 +1,8 @@
 <section class="col-12">
     <?php
-    if($_POST['adicionado']){
-        $_SESSION['carrinho-quantidade'] += 1;
-        $_POST['adicionado'] = false;
-    }
+
+    use App\Controllers\Paginas;
+//    header("Location: ". BASE_URL.'/carrinho');                                                          
     if (!empty($carrinho)):?>
         <div class="alert alert-info" role="alert">
             <h4 class="alert-heading">Seu carrinho está vazio</h4>
@@ -23,42 +22,27 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                <?php
+                    $itensCarrinho = $dadosView["produtos_carrinho"];
+                    for ($i=0; $i <count($itensCarrinho); $i++):?> 
                         <td class="text-center d-sm-block d-none">
-                            <img src="<?=BASE_URL."/assets/img/guitar.jpg"?>" alt="prod" width="150px" class="img-thumbnail">
+                            <img src="<?=print_r($itensCarrinho[$i]->getFoto())?>" alt="prod" width="150px" class="img-thumbnail">
                         </td>
                         <td style="width:50%">
-                            Sumidouro de palheta Marca X 1889 EXCLUSIVO! Só tem esse, compre logo que vai acabar!
+                        <?=print_r($itensCarrinho[$i]->getDescricao())?> EXCLUSIVO! Só tem esse, compre logo que vai acabar!
                         </td>
                         <td style="width:10%">
                             <form action="<?=BASE_URL."/nova-qtd-produto/url-produto"?>" method="POST">
                                 <div class="form-group">
-                                    <input type="number" name="qtd-produto" class="form-control" min="1"/>
+                                    <input type="text" name="qtd-produto" class="form-control" value="<?=$itensCarrinho[$i]->getQuantidade()?>"/>
                                 </div>
                             </form>
                         </td>
                         <td class="text-success text-center">
-                            R$ 849,99
+                        <?=print_r($itensCarrinho[$i]->getPreco())?>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="text-center d-sm-block d-none">
-                            <img src="<?=BASE_URL."/assets/img/guitar.jpg"?>" alt="prod" width="150px" class="img-thumbnail">
-                        </td>
-                        <td>
-                        <?= $_POST['produtoDesc']?> ! Só tem esse, compre logo que vai acabar!
-                        </td>
-                        <td>
-                            <form action="<?=BASE_URL."/nova-qtd-produto/url-produto"?>" method="POST">
-                                <div class="form-group">
-                                    <input type="number" name="qtd-produto" class="form-control" min="1"/>
-                                </div>
-                            </form>
-                        </td>
-                        <td class="text-success text-center">
-                            R$ 849,99
-                        </td>
-                    </tr>
+                    <?php endfor;?>
                 </tbody>
             </table>
         </div>

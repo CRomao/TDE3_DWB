@@ -36,7 +36,6 @@
                                 <p class="p-0 m-0"><span class="badge badge-pill badge-success">
                                 <?php
                                     if(isset($_SESSION['carrinho-quantidade'])){
-                                            //colocar aqui a implementação
                                             echo $_SESSION['carrinho-quantidade'] . '</span></p>';
                                     }else{
                                        echo '0</span></p>';

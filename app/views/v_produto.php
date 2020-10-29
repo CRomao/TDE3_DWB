@@ -38,7 +38,7 @@
                     <small>ou 12x de R$ 119,00 com muito juros</small>
                     
                     <p class="mt-3 mb-0"><a href="#">Mais formas de pagamento</a></p>
-                    <form method="post" action="<?=BASE_URL."/carrinho"?>">
+                    <form method="post" action="<?=BASE_URL."/itemAdicionado"?>">
                     <?php
                     $descricao = $_POST['produtoDescricao'];
                     $preco = $_POST['produtoPreco'];
