@@ -9,10 +9,10 @@
         for($i=0; $i < count($linhas); $i++):?>
             <div class="col-12 col-sm-6 col-lg-3 mb-3">
                 <div class="card p-0 hvr-glow">
-                    <img src="<?=print_r($linhas[$i]->getFoto())?>" alt="prod1" class="card-img-top" widht="50px">
+                    <img src="<?=$linhas[$i]->getFoto()?>" alt="prod1" class="card-img-top" widht="50px">
                     <div class="card-body">
-                    <p class="card-text">
-                    <?php print_r($linhas[$i]->getDescricao()); echo'</p>';?>
+                    <p class="card-text" style="font-size:20px">
+                    <?php echo $linhas[$i]->getDescricao();?></p>
                         <small>por</small>
                         <h5 class="card-title mb-0">R$ <?php echo number_format((double)$linhas[$i]->getPreco(),2,',','.')?></h5>
                         <form method="post" action="<?=BASE_URL."/produto"?>">

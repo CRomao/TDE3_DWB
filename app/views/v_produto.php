@@ -7,7 +7,7 @@
     </nav>
 </section>
 <section class="col-12">
-    <h3> <?= $_POST['produtoDescricao']; ?>! Só tem esse, compre logo que vai acabar!</h3>
+    <h3> <?= $_POST['produtoDescricao']; ?></h3>
     <div class="row">
         <div class="col-sm-8">
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">

@@ -33,9 +33,9 @@
                         <td style="width:10%;">
                             <form action="<?=BASE_URL."/removerItem"?>" method="post">
                                 <div class="form-group">
-                                    <input type="number" name="qtd-produto" class="form-control" value="<?=$itensCarrinho[$i]->getQuantidade()?>"/>
+                                    <input type="text" style="text-align:center;" readonly="" name="qtd-produto" class="form-control" value="<?=$itensCarrinho[$i]->getQuantidade()?>"/>
                                     <input type="hidden" name="descricao-produto" value="<?=$itensCarrinho[$i]->getDescricao()?>">
-                                    <input type="submit" style="color:red" value="remover">
+                                    <input type="submit" style="color:red; background:none; border:none; width:100%" value="remover">
                                 </div>
                             </form>
                         </td>
