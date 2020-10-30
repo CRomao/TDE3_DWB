@@ -27,19 +27,20 @@
                         <td class="text-center d-sm-block d-none">
                             <img src="<?=print_r($itensCarrinho[$i]->getFoto())?>" alt="prod" width="150px" class="img-thumbnail">
                         </td>
-                        <td style="width:50%">
-                        <?=print_r($itensCarrinho[$i]->getDescricao())?>! Só tem esse, compre logo que vai acabar!
+                        <td style="width:50%; font-size:30px">
+                        <?=$itensCarrinho[$i]->getDescricao()?>
                         </td>
-                        <td style="width:10%">
-                            <form action="<?=BASE_URL."/nova-qtd-produto/url-produto"?>" method="POST">
+                        <td style="width:10%;">
+                            <form action="<?=BASE_URL."/removerItem"?>" method="post">
                                 <div class="form-group">
                                     <input type="number" name="qtd-produto" class="form-control" value="<?=$itensCarrinho[$i]->getQuantidade()?>"/>
-                                    <p><a href="#"  style="color:red">remover</a></p>
+                                    <input type="hidden" name="descricao-produto" value="<?=$itensCarrinho[$i]->getDescricao()?>">
+                                    <input type="submit" style="color:red" value="remover">
                                 </div>
                             </form>
                         </td>
                         <td class="text-success text-center">
-                        <?=(double)$itensCarrinho[$i]->getPreco() * (int)$itensCarrinho[$i]->getQuantidade()?>
+                        R$ <?=number_format((double)$itensCarrinho[$i]->getPreco() * (int)$itensCarrinho[$i]->getQuantidade(),2,',','.')?>
                         </td>
                     </tr>
                     <?php endfor;?>

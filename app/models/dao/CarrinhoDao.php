@@ -45,4 +45,18 @@ class CarrinhoDao extends Dao {
         
         return null;
     }
+
+    public function removerItemCarrinho($descricao) {
+        try {
+            $sql = "DELETE FROM tb_carrinho WHERE descricao = ?";
+
+            $req = $this->pdo->prepare($sql);
+            $req->execute([$descricao]);
+
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+        
+        return null;
+    }
 }

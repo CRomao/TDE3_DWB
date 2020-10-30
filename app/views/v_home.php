@@ -14,7 +14,7 @@
                     <p class="card-text">
                     <?php print_r($linhas[$i]->getDescricao()); echo'</p>';?>
                         <small>por</small>
-                        <h5 class="card-title mb-0">R$ <?php number_format(print_r($linhas[$i]->getPreco()),2,",",".")?></h5>
+                        <h5 class="card-title mb-0">R$ <?php echo number_format((double)$linhas[$i]->getPreco(),2,',','.')?></h5>
                         <form method="post" action="<?=BASE_URL."/produto"?>">
                         <input type="hidden" name="produtoDescricao" value="<?php print_r($linhas[$i]->getDescricao())?>">
                         <input type="hidden" name="produtoPreco" value="<?php print_r($linhas[$i]->getPreco())?>">

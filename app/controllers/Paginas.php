@@ -67,9 +67,15 @@ class Paginas extends ControladorCore {
         $item = new ProdutoDao();
         $resu = $item->inserirProduto($_POST['foto'], $_POST['descricao'],
         $_POST['preco']);
-        $this->addDadosPagina("cadastroRealizado", $resu);
         $this->addTituloPagina("Produto Cadastrado");
         $this->carregarPagina("v_produto_cadastrado");
+    }
+
+    public function removerItem(){
+        $item = new CarrinhoDao();
+        $resu = $item->removerItemCarrinho($_POST['descricao-produto']);
+        $_SESSION['carrinho-quantidade'] -= $_POST['qtd-produto'];
+        header("Location: ".BASE_URL.'/carrinho');  
     }
 
     public function sobre() {

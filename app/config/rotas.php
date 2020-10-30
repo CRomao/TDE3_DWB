@@ -42,6 +42,13 @@ $rotas["cadastroRealizado"] = array(
     "funcao" => "cadastroRealizado"
 );
 
+$rotas["removerItem"] = array(
+    "http" => "GET",
+    "rota" => "/removerItem",
+    "controller" => "App\\Controllers\\Paginas",
+    "funcao" => "removerItem"
+);
+
 $rotas["erro404"] = array(
     "http" => "GET",
     "rota" => "/404",

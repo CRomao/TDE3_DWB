@@ -34,7 +34,7 @@
                 <div class="card-body">
                     <p class="card-text">Vendido e entregue por <small><strong class="text-primary">MEU E-COMMERCE</strong></p></small>
                     <small>de R$ 15.999,99</small>
-                    <h5 class="card-title"><small>por</small> R$  <?= $_POST['produtoPreco']; ?> <small>à vista <span class="text-success">(500% de desconto)</span></small></h5>
+                    <h5 class="card-title"><small>por</small> R$  <?= number_format($_POST['produtoPreco'],2,',','.'); ?> <small>à vista <span class="text-success">(500% de desconto)</span></small></h5>
                     <small>ou 12x de R$ 119,00 com muito juros</small>
                     
                     <p class="mt-3 mb-0"><a href="#">Mais formas de pagamento</a></p>
